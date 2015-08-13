@@ -2,17 +2,23 @@
 
 set -euo pipefail
 
-mvn -V -B -e verify
+rm -r sonar-runner-dist-2.4.zip sonar-runner-2.4 || true
+curl -O http://repo1.maven.org/maven2/org/codehaus/sonar/runner/sonar-runner-dist/2.4/sonar-runner-dist-2.4.zip
+unzip sonar-runner-dist-2.4.zip
 
-mvn org.codehaus.mojo:sonar-maven-plugin:2.6:sonar \
-    -Dsonar.analysis.mode=preview \
+./sonar-runner-2.4/bin/sonar-runner -Dsonar.analysis.mode=preview \
     -Dsonar.host.url=http://nemo.sonarqube.org/ \
-    -Dsonar.issuesReport.html.enable
+    -Dsonar.issuesReport.html.enable \
+    -Dsonar.projectKey=app \
+    -Dsonar.projectName=Backbone.js \
+    -Dsonar.projectVersion=master \
+    -Dsonar.sources=backbone \
+    -Dsonar.inclusions=**/backbone.js
 
 rm -rf out || true
 mkdir out
-cp target/sonar/issues-report/issues-report.html out/index.html
-cp -r target/sonar/issues-report/issuesreport_files out/
+cp .sonar/issues-report/issues-report.html out/index.html
+cp -r .sonar/issues-report/issuesreport_files out/
 cd out
 git init
 git config user.name "Travis CI"
