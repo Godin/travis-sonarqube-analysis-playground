@@ -6,7 +6,7 @@ set -euo pipefail
 curl -O http://repo1.maven.org/maven2/org/codehaus/sonar/runner/sonar-runner-dist/2.4/sonar-runner-dist-2.4.zip
 unzip sonar-runner-dist-2.4.zip
 
-./sonar-runner-2.4/bin/sonar-runner -Dsonar.analysis.mode=preview \
+./sonar-runner-2.4/bin/sonar-runner -X -Dsonar.analysis.mode=preview \
     -Dsonar.host.url=http://byteshiva.ngrok.io/ \
     -Dsonar.issuesReport.html.enable \
     -Dsonar.projectKey=app \
