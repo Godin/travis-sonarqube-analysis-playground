@@ -1,7 +1,8 @@
 language: java
 
 # Use container-based infrastructure:
-sudo: false
+#sudo: false
+sudo: required
 
 # Keep Maven local repository between builds:
 cache:
