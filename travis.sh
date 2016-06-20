@@ -22,7 +22,7 @@ cp -r .sonar/issues-report/issuesreport_files out/
 cd out
 git init
 git config user.name "Travis CI"
-git config user.email "<you>@<your-email>"
+git config user.email "byteshiva@gmail.com"
 git add .
 git commit -m "Deploy to GitHub Pages"
-git push --force --quiet "https://${GH_TOKEN}@github.com/Godin/travis-sonarqube-analysis-playground.git" master:gh-pages > /dev/null 2>&1
+git push --force --quiet "https://${GH_TOKEN}@github.com/byteshiva/travis-sonarqube-analysis-playground.git" master:gh-pages > /dev/null 2>&1
