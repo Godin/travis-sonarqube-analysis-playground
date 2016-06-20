@@ -7,7 +7,7 @@ curl -O http://repo1.maven.org/maven2/org/codehaus/sonar/runner/sonar-runner-dis
 unzip sonar-runner-dist-2.4.zip
 
 ./sonar-runner-2.4/bin/sonar-runner -X -Dsonar.analysis.mode=preview \
-    -Dsonar.host.url=http://byteshiva.ngrok.io/ \
+    -Dsonar.host.url=http://sonarqube.com/ \
     -Dsonar.issuesReport.html.enable \
     -Dsonar.projectKey=app \
     -Dsonar.projectName=Backbone.js \
